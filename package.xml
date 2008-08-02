@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package packagerversion="1.4.11" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0 http://pear.php.net/dtd/tasks-1.0.xsd http://pear.php.net/dtd/package-2.0 http://pear.php.net/dtd/package-2.0.xsd">
+ <name>sfPhotoGalleryPlugin</name>
+ <channel>pear.symfony-project.com</channel>
+ <summary>symfony sfPhotoGalleryPlugin plugin</summary>
+ <description>sfPhotoGalleryPlugin is a Symfony plugin. Plugin used to easly create photogallery related to persistent object in the DB.</description>
+ <lead>
+  <name>Alessio Piccioli</name>
+  <user>piccioli</user>
+  <email>piccioli@netseven.it</email>
+  <active>yes</active>
+ </lead>
+ <date>2008-08-02</date>
+ <time>11:00:00</time>
+ <version>
+  <release>0.1.4</release>
+  <api>0.1.4</api>
+ </version>
+ <stability>
+  <release>beta</release>
+  <api>beta</api>
+ </stability>
+ <license uri="http://www.gnu.org/licencses/lgpl.html">LGPL license</license>
+ <notes>-</notes>
+
+<contents>
+<dir name="/">
+ <file role="data" name="LICENSE" />
+ <file role="data" name="README" />
+
+ <dir name="config">
+  <file role="data" name="schema.yml" />
+ </dir>
+
+ <dir name="lib">
+  <file role="data" name="sfPhotoGalleryDefault.php" />
+
+  <dir name="helper">
+   <file role="data" name="sfPhotoGalleryHelper.php" />
+  </dir>
+
+  <dir name="model">
+   <file role="data" name="sfPhotoGalleryPeer.php" />
+   <file role="data" name="sfPhotoGallery.php" />
+  </dir>
+ </dir>
+
+ <dir name="modules">
+
+  <dir name="sfPhotoGallery">
+
+   <dir name="actions">
+    <file role="data" name="actions.class.php" />
+   </dir>
+
+   <dir name="templates">
+    <file role="data" name="createSuccess.php" />
+    <file role="data" name="editSuccess.php" />
+    <file role="data" name="listSuccess.php" />
+    <file role="data" name="manageGallerySuccess.php" />
+    <file role="data" name="showSuccess.php" />
+   </dir>
+  </dir>
+ </dir>
+
+ <dir name="web">
+   <dir name="thumbnails">
+    <file role="data" name=".none" />
+   </dir>
+ </dir>
+
+</dir>
+
+</contents>
+
+ <dependencies>
+  <required>
+   <php>
+    <min>5.0.0</min>
+   </php>
+   <pearinstaller>
+    <min>1.4.1</min>
+   </pearinstaller>
+   <package>
+    <name>symfony</name>
+    <channel>pear.symfony-project.com</channel>
+    <min>1.0.0</min>
+    <max>1.1.0</max>
+    <exclude>1.1.0</exclude>
+   </package>
+  </required>
+ </dependencies>
+ <phprelease />
+ <changelog />
+</package>
+

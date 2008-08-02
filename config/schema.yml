@@ -1,0 +1,15 @@
+propel:
+  _attributes: { package: plugins.sfPhotoGalleryPlugin.lib.model }
+  photo:
+    _attributes: { phpName: sfPhotoGallery }
+    id:
+    entity:      varchar(255)
+    entity_id:   integer
+    name:        varchar(255)
+    mime_type:   varchar(255)
+    size:        integer
+    suffix:      varchar(255)
+    title:       varchar(255)
+    description: longvarchar
+    rank:        integer    
+

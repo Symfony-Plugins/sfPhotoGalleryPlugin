@@ -1,0 +1,150 @@
+= sfPhotoGalleryPlugin =
+
+== Overview ==
+
+sfIconPlugin is a Symfony plugin. You can use it to associate one or more photo (with thumbnail automatically created) to any persistent object present in your model.
+
+== Requirements ==
+
+The following plugin is required:
+
+ * [wiki:sfThumbnailPlugin]
+
+The following plugins are optional:
+
+ * [wiki:sfLightboxPlugin]
+ * [wiki:sfModalBoxPlugin]
+ * [wiki:sfIconPlugin]
+
+The idea for future version is to remove these dependencies and build lighter versions
+
+== Installation ==
+
+You can install sfPhotoGalleryPlugin via PEAR (recommended) package manager or manually.
+
+=== PEAR installation ===
+
+ 1. The easiest way to install sfPhotoGalleryPlugin is to use PEAR package manager.
+
+{{{
+$ symfony plugin-install http://plugins.symfony-project.com/sfPhotoGalleryPlugin
+}}}
+
+ Alternatively, if you don't have PEAR installed, you can download the latest package attached to this plugin's wiki page and extract it under your project's `plugins/` directory. You will also have to copy the contents of the `myproject/plugins/sfIconPlugin/web/` directory into a `myproject/web/sfIconPlugin/` directory.
+
+ 2. Now clear the cache with symfony clear-cache command to enable the autoloading to find the new classes:
+
+{{{
+$ symfony cc
+}}}
+
+ 3. Rebuild the database and the model
+
+{{{
+$ symfony propel-build-all
+}}}
+
+== Configuration ==
+
+The following steps are needed. (To be improved and customizable)
+
+  1. Change the permission of the photo and thumbnails directories
+
+{{{
+$ chmod 777 plugins/sfPhotoGalleryPlugin/web
+$ chmod 777 plugins/sfPhotoGalleryPlugin/web/thumbnails
+}}}
+
+== Usage (Frontend) ==
+
+ 1. Put the use_helper in your template
+
+{{{
+<?php use_helper('sfPhotoGallery') ?>
+}}}
+
+ 2. Use the sfPhotoGallery Helper
+
+{{{
+<?php if ( photo_has_gallery('entity',$entity->getId() ) {... ?>
+}}}
+ 
+{{{
+<?php echo photo_thumbnail_tag('entity',$entity->getId(),$html_options=array()) ?>
+}}}
+
+{{{
+<?php echo photo_lightbox_slideshow('entity',$entity->getId(),$options=array()) ?> 
+}}}
+Options for this helper:
+ * label=STRING (default is 'Add')
+ * icon=true (show image_multi icon needs [wiki:sfIconPlugin]
+ 
+== Usage (Backend) ==
+
+ 1. Enable the module in your settings.yml
+
+{{{
+all:
+  .settings:
+    enabled_modules:      [default, sfPhotoGallery, ...]
+}}}
+
+ 2. Clear the cache
+{{{
+$ symfony cc
+}}}
+
+ 3. Put the use_helper in your template
+{{{
+<?php use_helper('sfPhotoGallery') ?>
+}}}
+
+ 4. Use the sfPhotoGallery Helper
+
+{{{
+<?php if ( photo_has_gallery('entity',$entity->getId() ) {... ?>
+}}}
+ 
+{{{
+<?php echo photo_link_to_add('entity',$entity->getId(),$use_icon,$use_mbox) ?> 
+}}}
+
+Options for this helper:
+ * label=STRING (default is 'Add Photo')
+ * icon=true (show image_multi icon, requires [wiki:sfIconPlugin]
+ * modalbox=true (open the image Borwser in a Modalox window, requires [wiki:sfModalboxPlugin])
+
+== Changelog ==
+2008-06-27: 0.1.3 beta
+ * Rank managing, added action manageGallery
+
+2008-06-05: 0.1.2 beta
+ * Added html_options to photo_thumbnail_tag helper
+
+2008-06-03: 0.1.1 beta
+ * Bug fix (thanks to Jonathan Bryan <jonathan@ifranks.com>, Karsten Redmer <k.redmer@yahoo.de>, Szentesi Zsolt <szente@webkombinat.hu>, pinedasoft@gmail.com) 
+
+2008-05-07: 0.1.0 beta
+ * Initial release
+
+== Todo ==
+
+ * CRUD for photoGallery and single Photo (EDIT AND DELETE)
+ * Rank management (inside a gallery)
+ * Set default values for constants and add the possibility to change them (app.yml)
+ * Improve options for helpers (modalbox and lightbox)
+ * Remove the thumbnails requirements
+ * Customize the image format allowed
+
+== Contacts ==
+
+If you have any questions or feedback feel free to contact me at [mailto:piccioli@netseven.it].
+
+Please include sfPhotoGalleryPlugin in the mail subject, this will help me tracking the conversation.
+
+
+== License ==
+
+sfPhotoGalleryPlugin is a symfony plugin created by Alessio Piccioli.
+For the full copyright and license information, please view the LICENSE file that was distributed with this source code.
